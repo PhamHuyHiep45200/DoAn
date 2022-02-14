@@ -1,0 +1,173 @@
+
+.nav{
+    height:10rem;
+    background-color:red;
+}
+.navbar{
+    height:10rem;
+    display:flex;   
+    background-image: linear-gradient(to bottom,blue,rgb(79, 79, 170));
+    position: fixed;
+    top:0;
+    left:0;
+    right:0;
+    z-index: 1;
+
+    &_logo{
+        width:12rem;
+        height:100%;
+        display:flex;
+        align-items:center;
+        justify-content: center;
+
+
+        &_icon{
+            font-size:6rem;
+            color:white;
+        }
+
+        &_text{
+            margin-left:0.3rem;
+            color:white;
+            font-size:3rem;
+        }
+    }
+
+    &_search{
+        width:100%;
+        height:100%;
+
+
+        &_outform{
+            width: 100%;
+            height:7.5rem;
+            display:flex;
+            align-items: flex-end;
+            border-radius: 0.3rem;
+
+            &_form{
+                width: 100%;
+                height:4rem;
+                display:flex;
+                align-items:center;
+                background-color: white;
+                margin-bottom: 0.5rem;
+                border-radius: 0.3rem;
+    
+                &_input{
+                    flex:1;
+                    height: 4rem;
+                    font-size:1.6rem;
+                    outline:none;
+                    border:none;
+                    border-radius: 0.3rem;
+                    padding: 0 1rem;
+                    
+                }
+                &_btn{
+                    padding: 0.6rem 2rem;
+                    display:flex;
+                    align-items:center;
+                    justify-content:center;
+                    border-radius: 0.3rem;
+                    background-color:blue;
+                    outline:none;
+                    border: none;
+                    margin-right: 0.5rem;
+    
+                    &:hover{
+                        opacity: 0.8;
+                    }
+    
+                    &_icon{
+                        font-size:2rem;
+                        color:white !important;
+                    }
+                }
+            }
+        }
+        
+        &_list{
+            display:flex;
+            width:100%;
+            height:2.5rem;
+            padding:0;
+            margin:0;
+            justify-content: space-around;
+
+            &_link{
+                display:flex;
+                text-decoration:none;
+                align-items: flex-start;
+
+                &_item{
+                    list-style: none;
+                    color:white;
+                    font-size:1.4rem;
+
+                    &:hover{
+                        opacity:0.9;
+                    }
+                }
+            }
+
+            
+        }
+        
+    }
+
+    &_me{
+        display:flex;
+
+
+        &_cart{
+            width:30%;
+            height:100%;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+
+            &_icon{
+                font-size:3.3rem;
+                color:white !important;
+            }
+        }
+
+        &_info{
+            width:70%;
+            height:100%;
+            display:flex;
+            align-items:center;
+            justify-content: right;
+
+            &_img{
+                width: 2.6rem;
+                height: 2.6rem;
+                border-radius:50%;
+                object-fit: cover;
+            }
+            &_name{
+                font-size:1.6rem;
+                color:white;
+                margin-left: 0.5rem;
+                position: relative;
+                &_list{
+                    margin:0;
+                    padding:0;
+                    position: absolute;
+                    background-color: white;
+                    border-radius: 0.3rem;
+                    &_link{
+                        text-decoration:none;
+                        &_item{
+                            list-style: none;
+                            padding:0.5rem 1.5rem;
+                            color:#333;
+                            font-size: 1.4rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

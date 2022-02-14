@@ -1,0 +1,32 @@
+.table{
+    .th{
+        border-top: 1px solid rgb(216, 216, 216);
+        border-bottom: 1px solid rgb(216, 216, 216);
+        padding:2rem 0;
+        font-size:1.6rem;
+        text-align:center;
+        &:nth-child(odd){
+            background-color: #f8f8f8;
+        }
+        .name{
+            display:-webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            align-self: center;
+        }
+        .priceProduct{
+            position: relative;
+        }
+        .imgProduct{
+            width: 90%;
+        }
+        span{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+    
+}

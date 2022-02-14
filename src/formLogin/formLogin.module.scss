@@ -1,0 +1,77 @@
+.login{
+    background-image: linear-gradient(to bottom,blue,rgb(110, 110, 255));
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    height:100vh;
+    .nameShop{
+        display: flex;
+        align-items: center;
+        margin-right:3rem;
+        .icon{
+            font-size:20rem;
+            color:white;
+        }
+        .textName{
+            color:white;
+            font-size:10rem;
+        }
+    }
+    .form{
+        padding:2rem 3rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: white;
+        width:45rem;
+        border-radius:0.3rem;
+        margin-bottom: 2rem;
+        
+        .public{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            width:100%;
+            border-top: 1px solid #d0d0d0;
+            padding-top:3rem;
+            position: relative;
+            .or{
+                position: absolute;
+                top:-20%;
+                background-color:white;
+                padding:0.5rem 2rem;
+                color:#999;
+                font-size:1.4rem;
+                right:50%;
+                transform:translateX(50%);
+                text-transform: uppercase;
+            }
+            .facebook{
+                border: none;
+                padding:1rem;
+                background-color:blue;
+                color:white;
+                border-radius: 0.3rem;
+                border: 2px solid blue;
+            }
+            .google{
+                border: 2px solid blue;
+                padding:1rem 1rem;
+                background-color:white;
+                color:#333;
+                border-radius: 0.3rem;
+            }
+        }
+        .text{
+            display: flex;
+            align-items: center;
+            padding:1rem 0;
+            font-size:1.6rem;
+            color:#666;
+            .link{
+                color:blue;
+                margin-left:0.5rem;
+            }
+        }
+    }
+}

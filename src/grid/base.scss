@@ -1,0 +1,17 @@
+$color_Primary:rgb(0, 63, 199);
+$font_Color:#333;
+
+*{
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+html{
+    font-size: 62.5%; 
+    box-sizing: border-box;
+}
+.unit{
+    font-size:1.5rem;
+    position: absolute;
+    top:10%;
+}

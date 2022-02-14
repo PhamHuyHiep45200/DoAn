@@ -1,0 +1,237 @@
+.infoDetail{
+    width: 100%;
+    &_h3{
+        padding: 1.5rem 0;
+        color: #333;
+        font-size:1.8rem;
+    }
+    &_main{
+        padding: 2rem 2.5rem;  
+        border-radius: 0.4rem;
+        background-color: white;
+        &_view{
+            width: 100%;
+            &_img{
+                width: 100%;
+                height:40rem;
+                border-radius: 0.4rem;
+            }
+            &_listImg{
+                width: 100%;
+                height:10rem;
+                margin:0.5rem 0;
+                &_item{
+                    height:100%;
+                    margin:0 0.5rem;
+                    &:hover{
+                        border:3px solid blue;
+                    }
+                }
+            }
+            &_share{
+                width: 100%;
+                height:5rem;
+                display:flex;
+                align-items: center;
+                justify-content: center;
+                &_text{
+                    font-size:2rem;
+                    columns: #555;
+                }
+                &_icon{
+                    display:flex;
+                    align-items: center;
+                    &_icon1{
+                        font-size:3rem;
+                        color: #3b5999;
+                        margin:0 0.8rem;
+                    }
+                    &_icon2{
+                        font-size:3rem;
+                        color: #0384ff;
+                    }
+                }
+            }
+        }
+        &_info{
+            width: 100%;
+            &_name{
+                font-size:2.2rem;
+                color: #333;
+                font-weight:600;
+                text-transform: capitalize;
+            }
+            &_interactive{
+                width: 100%;
+                display:flex;
+                margin:1rem 0;
+                &_comment{
+                    color: #666;
+                    font-size:1.5rem;
+                    border-right: 1px solid #888;
+                    padding-right: 1rem;
+                }
+                &_love{
+                    padding-left:1rem;
+                    color: #666;
+                    font-size:1.5rem;
+                    display:flex;
+                    align-items: center;
+                    &_icon{
+                        color: #ff424f;
+                        font-size:1.8rem;
+                        margin-left: 0.4rem;
+                    }
+                }
+            }
+            &_price{
+                width: 100%;
+                background-color: #f5f5f5;
+                height:6rem;
+                border-radius: 0.4rem;
+                display:flex;
+                align-items:center;
+                padding-left: 1rem;
+                &_old{
+                    font-size:1.8rem;
+                    text-decoration: line-through;
+                    color: #666666;
+                    position: relative;
+                }
+                &_new{
+                    font-size:2.4rem;
+                    color:red;
+                    font-weight:600;
+                    margin:0 2rem;
+                    position: relative;
+                }
+                &_sale{
+                    font-size:1.2rem;
+                    padding:0.3rem 0.5rem;
+                    background-color:rgb(255, 47, 0);
+                    color:white;
+                    font-weight:600;
+                    border-radius: 0.3rem;
+                }
+            }
+            &_out{
+                padding:1rem 1rem;
+                width: 100%;
+                &_outShip{
+                    width:100%;
+                    display:flex;
+                    align-items:center;
+                    margin: 2rem 0;
+                    &_left{
+                        color:#666666;
+                        font-size:1.8rem;
+                    }
+                    &_right{
+                        width:100%;
+                        display:flex;
+                        &_father{
+                            display:flex;
+                            align-items: center;
+                            &_icon{
+                                font-size:1.8rem;
+                                color:rgb(0, 162, 113);
+                            }
+                            &_text{
+                                color:#333333;
+                                font-size:1.8rem;
+                            }
+                        }
+                        &_add{
+                            color:#333333;
+                            font-size:1.8rem;
+                            margin-left: 1.5rem;
+                        }
+                    }
+                }
+                &_option{
+                    width:100%;
+                    margin: 2rem 0;
+                    display: flex;
+                    align-items: center;
+                    &_left{
+                        width:100%;
+                        color:#666666;
+                        font-size:1.8rem;
+                    }
+                    &_right{
+                        width: 100%;
+                        display:flex;
+                        &_color{
+                            font-size:1.5rem;
+                            padding:0.5rem 1rem;
+                            border:0.1rem solid #666666;
+                            color:#333;
+                            margin:0 1rem;
+                        }
+                    }
+                }
+                &_number{
+                    width:100%;
+                    margin: 2rem 0;
+                    &_left{
+                        width:100%;
+                        color:#666666;
+                        font-size:1.8rem;
+                    }
+                    &_right{
+                        width: 100%;
+                        display:flex;
+                        align-items: center;
+                        &_minus{
+                            font-size:1.4rem;
+                            padding:0.5rem;
+                            border:0.1rem solid #666666;
+                        }
+                        &_quantily{
+                            font-size:1.4rem;
+                            width:3rem;
+                            padding:0.5rem 0;
+                            text-align:center;
+                            border-top:0.1rem solid #666666;
+                            border-bottom:0.1rem solid #666666;
+                        }
+                        &_plus{
+                            font-size:1.4rem;
+                            padding:0.5rem;
+                            border:0.1rem solid #666666;
+                        }
+                    }
+                }
+                &_btn{
+                    display:flex;
+                    align-items: center;
+                    margin-top: 3rem;
+                    &_cart{
+                        color:blue;
+                        background-color:rgb(232, 235, 255);
+                        border:0.1rem solid blue;
+                        width:20rem;
+                        padding: 1.5rem 0;
+                        text-align:center;
+                        border-radius: 0.4rem;
+                        &:hover{
+                            opacity: 0.7;
+                        }
+                    }
+                    &_buying{
+                        color:white;
+                        background-color:blue;
+                        margin-left: 1rem;
+                        width:20rem;
+                        padding: 1.5rem 0;
+                        text-align:center;
+                        border-radius: 0.4rem;
+                        &:hover{
+                            opacity: 0.8;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

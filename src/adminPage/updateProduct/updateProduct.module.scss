@@ -1,0 +1,56 @@
+.create{
+    padding:2rem;
+    margin-bottom :5rem;
+    .h3{
+        text-align:center;
+        padding: 1rem 0;
+        color:#333;
+        font-weight:600;
+        font-size:3rem;
+        background-color:#f5f5f5;
+    }
+    .input{
+        width:90%;
+        height:4.5rem;
+        border-radius: 0.3rem;
+        font-size:1.6rem;
+        margin-bottom: 1rem;
+        color:#333;
+        padding-left: 1rem;
+        border: 1px solid rgb(204, 204, 204);
+        outline: none;
+        &:hover{
+            border: 1px solid blue;
+            transition: all 0.5s ease;
+        }
+    }
+    .outImg{
+        display: flex;
+        align-items: center;
+        margin:2rem 0;
+    }
+    .textImg{
+        margin-right: 1rem;
+    }
+    .img{
+        height:20rem;
+        margin-bottom: 2rem;
+    }
+    .btnForm{
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        .btn{
+            padding:1rem 2rem;
+            font-size: 1.6rem;
+            color: white;
+            background-color:blue;
+            border-radius:0.3rem;
+            border:none;
+            &:hover{
+                opacity: 0.9;
+            }
+        }
+    }
+}

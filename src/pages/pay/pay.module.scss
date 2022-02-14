@@ -1,0 +1,229 @@
+.pay{
+    width: 100%;
+    box-shadow: 0 0 0.3rem #999;
+    background-color:#f5f5f5;
+    margin-top:10rem;
+    padding:2rem 0;
+    .address{
+        padding:2rem 1rem;
+        background-color:white;
+        display:flex;
+        flex-wrap: wrap;
+        .outTop{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            .header{
+                display:flex;
+                align-items: center;
+                padding:0.5rem 0;
+                color:#333(0, 255, 255);
+                font-size:2.5rem;
+                .FaMapMarkerAlt{
+                    font-size: 2.5rem;
+                    color:rgb(0, 255, 128);
+                }
+            }
+            .name{
+                color: #333;
+                font-size:2.2rem;
+                margin: 0.5rem 0;
+            }
+            .phone{
+                display: flex;
+                align-items: center;
+                color: #333;
+                font-size:2.2rem;
+                .iconPhone{
+                    color:wheat;
+                    font-size:2.2rem;
+                }
+            }
+        }
+        .outMain{
+            display: flex;
+            align-items: center;
+            .add{
+                color: #333;
+                font-size:2rem;
+    
+            }
+        }
+        .outBottom{
+            display: flex;
+            align-items: center;
+            .upAdd{
+                text-decoration: none;
+                color: #666;
+                font-size:1.8rem;
+            }
+        }
+    }
+    .product{
+        width:100%;
+        padding:2rem 1rem;
+        margin:2rem 0;
+        background-color:white;
+        .pTop{
+            align-items: center;
+            padding:1rem 0;
+            .tProduct{
+                color: #666;
+                font-size:1.8rem;
+            }
+            .col6{
+                display: flex;
+                .tPrice{
+                    color: #666;
+                    font-size:1.8rem;
+                    text-align: center;
+                }
+                .tNumber{
+                    color: #666;
+                    font-size:1.8rem;
+                    text-align: center;
+                }
+                .tSumPrice{
+                    color: #666;
+                    font-size:1.8rem;
+                    text-align: center;
+                }
+            }
+            
+        }
+        .bBottom{
+            align-items: center;
+            .bProduct{
+                display:flex;
+                align-items: center;
+                .img{
+                    height:8rem;
+                    object-fit: cover;
+                }
+                .nameProduct{
+                    color: #333;
+                    font-size:1.6rem;
+                    display:-webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 2;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                }
+            }
+            .col6{
+                display: flex;
+                .bPrice{
+                    position: relative;
+                    color: #333;
+                    font-size:1.6rem;
+                    text-align: center;
+                }
+                .bNumber{
+                    color: #333;
+                    font-size:1.6rem;
+                    text-align: center;
+                }
+                .bSumPrice{
+                    position: relative;
+                    color: #333;
+                    font-size:1.6rem;
+                    text-align: center;
+                }
+            }
+        }
+    }
+    .methodPay{
+        margin-bottom: 2rem 0;
+        width:100%;
+        padding:0 1rem;
+        background-color: rgb(252, 245, 246);
+        box-shadow: 0 0 0.3rem #888;
+        .headerPay{
+            border-bottom: 1px solid #e6e6e6;
+            align-items: center;
+            padding:2rem 1rem;
+            .hpLeft{
+                font-size:2.2rem;
+                color: #333;
+                font-weight: 600;
+            }
+            .hpRight{
+                font-size:2.2rem;
+                color: #333;
+                font-weight: 600;
+                text-align: right;
+            }
+        }
+        .mainPay{
+            align-items: center;
+            padding:2rem 1rem;
+            .mLeft{
+                font-size:1.6rem;
+                color: #333;
+            }
+            .mRight{
+                display: flex;
+                .mLeftText{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content:center;
+                    align-items: flex-end;
+                    .TextProduct{
+                        font-size:1.8rem;
+                        color: #333;
+                    }
+                    .TextpriceShip{
+                        font-size:1.8rem;
+                        color: #333;
+                    }
+                }
+                .mRightText{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content:center;
+                    align-items: flex-start;
+                    .spProduct{
+                        position: relative;
+                        font-size:2rem;
+                        color: rgb(255, 14, 14);
+                    }
+                    .priceShip{
+                        position: relative;
+                        font-size:1.8rem;
+                        color: #333;
+                    }
+                }
+            }
+        }
+        .btnPay{
+            align-items: center;
+            padding:2rem 1rem;
+            border-top: 1px solid #e6e6e6; 
+            .btnText{
+                display: flex;
+                align-items: center;
+                font-size:1.4rem ;
+                color: #777;
+                .iconAcuryti{
+                    font-size:1.6rem;
+                    margin-right: 0.5rem;
+                    color: rgb(67, 67, 255);
+                }   
+            }
+            .btnOut{
+                text-align: right;
+                .btnButton{
+                    padding:1rem 2rem;
+                    background-color:blue;
+                    font-size:1.6rem;
+                    color: white;
+                    border-radius:0.3rem ;
+                    &:hover{
+                        opacity: 0.8;
+                    }
+                }
+            }
+        }
+    }
+}
