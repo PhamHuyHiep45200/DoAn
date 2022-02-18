@@ -5,6 +5,7 @@ import { Modal } from 'antd';
 import {EditOutlined,DeleteOutlined} from '@ant-design/icons'
 import UpCategory from './updateCategory';
 import {getCategory,createCategory,deleteCategory} from '../../services/api/admin/category'
+import { ToastContainer, toast } from 'react-toastify';
 
 function Category() {
   const ref=useRef()
@@ -48,6 +49,7 @@ function Category() {
     e.preventDefault()
     const {success,data}= await createCategory(input.name)
     if(success){
+      notify()
       const datas=data.data
       setCategory([...category,datas])
       setInput({name:''})
@@ -61,6 +63,7 @@ function Category() {
   const handleCancel = () => {
     setVisible(false);
   };
+  const notify = () => toast("Thêm thành công !");
   return (
       <div className={clsx(style.formOut,'row')}>
           <h3 className={clsx(style.h3,"col l-12")}>Category</h3>
@@ -107,6 +110,9 @@ function Category() {
           >
             <p>{modalText}</p>
           </Modal>
+          <div>
+            <ToastContainer />
+          </div>
       </div>
   )
 }

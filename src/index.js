@@ -4,6 +4,7 @@ import App from './App';
 import './grid/grid.css'
 import './grid/base.scss'
 import 'antd/dist/antd.css';
+import 'react-toastify/dist/ReactToastify.css';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter as Router} from 'react-router-dom'
 
