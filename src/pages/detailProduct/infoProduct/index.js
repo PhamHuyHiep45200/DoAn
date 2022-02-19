@@ -1,9 +1,24 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, {  useState } from 'react';
 import {FaShippingFast,FaFacebook,FaFacebookMessenger,FaHeart} from 'react-icons/fa'
 import {MinusOutlined,PlusOutlined,RightOutlined} from '@ant-design/icons'
 import './info.scss'
 
 function InfoProduct({name,img,sale,price,tym}) {
+
+    const [number,setNumber]=useState(1)
+
+    const handlePlus=()=>{
+        
+        setNumber(number+1)
+    }
+
+    const handleMinus=()=>{
+        if(number<=0){
+            return setNumber(0)
+        }
+        setNumber(number-1)
+    }
+
     function numberWithCommas(x) {
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
@@ -70,11 +85,11 @@ function InfoProduct({name,img,sale,price,tym}) {
                     <div className="infoDetail_main_info_out_number row">
                         <span className="infoDetail_main_info_out_number_left col l-2">Số lượng</span>
                         <div className="infoDetail_main_info_out_number_right col l-8">
-                            <span className="infoDetail_main_info_out_number_right_minus">
+                            <span className="infoDetail_main_info_out_number_right_minus" onClick={handleMinus}>
                                 <MinusOutlined />
                             </span>
-                            <span className="infoDetail_main_info_out_number_right_quantily">1</span>
-                            <span className="infoDetail_main_info_out_number_right_plus">
+                            <span className="infoDetail_main_info_out_number_right_quantily">{number}</span>
+                            <span className="infoDetail_main_info_out_number_right_plus" onClick={handlePlus}>
                                 <PlusOutlined />
                             </span>
                             

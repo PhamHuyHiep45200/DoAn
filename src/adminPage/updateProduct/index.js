@@ -5,6 +5,7 @@ import clsx from 'clsx'
 import {storage} from '../../firebase'
 import {ref,uploadBytesResumable,getDownloadURL} from '@firebase/storage'
 import {getUpdate,UpdateProduct} from '../../services/api/admin/product'
+import { ToastContainer, toast } from 'react-toastify';
 
 function CreateProduct() {
     const [img,setImg]=useState('')
@@ -23,6 +24,8 @@ function CreateProduct() {
       }
       return get()
     },[])
+
+    const notify = () => toast("Update thành công !");
     const handleImg=(e)=>{
       setImg(URL.createObjectURL(e.target.files[0]))
       //lưu ảnh firebase
@@ -73,6 +76,7 @@ function CreateProduct() {
       )
       if(success){
         navigate('/admin')
+        notify()
       }
     }
   return (
@@ -216,6 +220,9 @@ function CreateProduct() {
             <button className={style.btn}>Update</button>
           </div>
         </form>
+        <div>
+          <ToastContainer />
+        </div>
       </div>
   )
 }

@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import {Link} from 'react-router-dom'
 import {ShoppingTwoTone,SearchOutlined,ShoppingCartOutlined} from '@ant-design/icons'
 import './navbar.scss'
 import Anhdaidien from '../../../img/anhdaidiien.jpg'
+import {UserContext} from '../../../provider/userProvider'
 
 function Navbar() {
   const [input,setInput]=useState('')
+  // const user=useContext(UserContext)
+  // console.log(user);
   return (
     <div className="navbar">
       <div className="grid wide row">
@@ -32,7 +35,9 @@ function Navbar() {
         </div>
         <div className="navbar_me col l-2">
           <div className="navbar_me_cart">
-            <ShoppingCartOutlined className="navbar_me_cart_icon"/>
+            <Link to='/cart'>
+              <ShoppingCartOutlined className="navbar_me_cart_icon"/>
+            </Link>
           </div>
           <div className="navbar_me_info">
             <img src={Anhdaidien} className="navbar_me_info_img"/>
@@ -42,7 +47,7 @@ function Navbar() {
                 <Link to='#' className="navbar_me_info_name_list_link">
                   <li className="navbar_me_info_name_list_link_item">Tài Khoản</li>
                 </Link>
-                <Link to='#' className="navbar_me_info_name_list_link">
+                <Link to='/admin' className="navbar_me_info_name_list_link">
                   <li className="navbar_me_info_name_list_link_item">Admin</li>
                 </Link>
                 <Link to='#' className="navbar_me_info_name_list_link">

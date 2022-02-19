@@ -5,6 +5,7 @@ import { getShow,deleteProduct } from '../../services/api/admin/product';
 import {Link} from 'react-router-dom'
 import style from './show.module.scss'
 import clsx from 'clsx'
+import { ToastContainer, toast } from 'react-toastify';
 
 function ShowProduct() {
   const [product,setProduct]=useState([])
@@ -12,6 +13,7 @@ function ShowProduct() {
   const [visible, setVisible] =useState(false);
   const [confirmLoading, setConfirmLoading] =useState(false);
   const [modalText, setModalText] =useState('Bạn có chắc chắn muốn xóa sản phẩm này?');
+  const notify = () => toast("Xóa sản phẩm thành công !");
     useEffect(()=>{
         const show=async ()=>{
             const {success,data}= await getShow()
@@ -33,6 +35,7 @@ function ShowProduct() {
         product.splice(index,1)
         setProduct(product)
         setVisible(false);
+        notify()
         // setConfirmLoading(false);
       }
     };
@@ -81,6 +84,9 @@ function ShowProduct() {
           >
             <p>{modalText}</p>
           </Modal>
+          <div>
+            <ToastContainer />
+          </div>
       </div>
   )
 }

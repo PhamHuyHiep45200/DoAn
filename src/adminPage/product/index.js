@@ -5,6 +5,7 @@ import {useNavigate} from 'react-router-dom'
 import {storage} from '../../firebase'
 import {ref,uploadBytesResumable,getDownloadURL} from '@firebase/storage'
 import {createProduct,getShow} from '../../services/api/admin/product.js'
+import { ToastContainer, toast } from 'react-toastify';
 
 function CreateProduct() {
     const [imgProduct,setImgProduct]=useState([])
@@ -25,6 +26,8 @@ function CreateProduct() {
       camera:'',
       pin:'',
     })
+
+    const notify = () => toast("Thêm sản phẩm thành công !");
     useEffect(()=>{
       const show= async ()=>{
        await getShow()
@@ -80,6 +83,7 @@ function CreateProduct() {
       )
       if(success){
         navigate('/admin')
+        notify()
       }
 
     }
@@ -217,6 +221,9 @@ function CreateProduct() {
             <button className={style.btn}>Thêm sản phẩm</button>
           </div>
         </form>
+        <div>
+          <ToastContainer />
+        </div>
       </div>
   )
 }

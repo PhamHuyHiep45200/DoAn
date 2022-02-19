@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{ useContext} from 'react';
 import {Routes,Route} from 'react-router-dom'
 import Home from '../pages/home/Home'
 import DetailProduct from '../pages/detailProduct/DetailProduct'
@@ -15,7 +15,7 @@ import UpdateProduct from '../adminPage/updateProduct';
 
 function Router() {
   return (
-    <Routes>
+      <Routes>
         <Route path="" element={<NavFot/>} >
             <Route path="" element={<Home/>}/>
             <Route path="search/:name" element={<Search/>}/>
@@ -31,7 +31,7 @@ function Router() {
         </Route>
         <Route path="login" element={<FormLogin auth='login'/>}/>
         <Route path="register" element={<FormLogin auth='register'/>}/>
-    </Routes>
+      </Routes>
   )
 }
 

@@ -24,7 +24,8 @@ function Login() {
     }
   }
   return (
-    <div className={style.private}>
+    
+      <div className={style.private}>
         <h3 className={style.header}>Đăng nhập</h3>
         <form className={style.info} onSubmit={handleSubmit}>
             <input 
@@ -51,7 +52,7 @@ function Login() {
             <button type="submit" className={style.btnLogin}>Đăng nhập</button>
             <span className={style.forgot}>Quên mật khẩu</span>
         </form>
-    </div>
+      </div>
   )
 }
 

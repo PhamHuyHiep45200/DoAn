@@ -35,12 +35,12 @@ function Category() {
   const handleOk = async (id,index) => {
     const {success} =await deleteCategory(id)
     if(success){
+      notifyDelete()
       category.splice(index,1)
       setCategory(category)
       setVisible(false);
     }
-      // setConfirmLoading(false);
-    }
+  }
 
   const handleInput=(e)=>{
     setInput({...input,[e.target.name]:e.target.value})
@@ -64,6 +64,7 @@ function Category() {
     setVisible(false);
   };
   const notify = () => toast("Thêm thành công !");
+  const notifyDelete = () => toast("Xóa thành công !");
   return (
       <div className={clsx(style.formOut,'row')}>
           <h3 className={clsx(style.h3,"col l-12")}>Category</h3>
