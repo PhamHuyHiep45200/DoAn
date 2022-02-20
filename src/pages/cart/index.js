@@ -1,10 +1,26 @@
 import clsx from 'clsx';
-import React from 'react';
+import React,{useEffect, useState,useContext} from 'react';
 import style from './cart.module.scss'
+import {getCart} from '../../services/api/page/cart'
 import {ShoppingCartOutlined} from '@ant-design/icons'
-import AnhDaiDien from '../../img/anhdaidiien.jpg'
+import {LoginProvider} from '../../App'
 
 function Cart() {
+    const {user:{data:{_id}}}=useContext(LoginProvider)
+    const [dataCart,setDataCart]=useState([])
+    useEffect(()=>{
+        const getProCart=async()=>{
+            const {success,data}=await getCart(_id)
+            if(success){
+                setDataCart(data.data)
+            }
+        }
+        return getProCart()
+    },[])
+
+    function numberWithCommas(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
   return (
       <div className={style.cart}>
         <div className="grid wide">
@@ -28,17 +44,18 @@ function Cart() {
                     </div>
                 </div>
             </div>
-            <div className={clsx(style.product)}>
+            {dataCart.map((cart,index)=>(
+                <div className={clsx(style.product)} key={index}>
                 <div className={clsx(style.pLeft,'col l-6')}>
                     <div className={clsx(style.plMain,'row')}>
                         <div className={clsx(style.plCheckbox,'col l-2')}>
                             <input type='checkbox' className={style.check}/>
                         </div>
                         <div className='col l-2' className={clsx(style.plImg,'col l-2')}>
-                            <img className={style.img} src={AnhDaiDien}/>
+                            <img className={style.img} src={cart.imgCart}/>
                         </div>
                         <div className={clsx(style.plName,'col l-4')}>
-                            <p className={style.plNameProduct}>tên</p>
+                            <p className={style.plNameProduct}>{cart.nameCart}</p>
                         </div>
                         <div className={clsx(style.plOption,'col l-4')}>
                             <span className={style.optionProduct}>loại</span>
@@ -48,13 +65,13 @@ function Cart() {
                 <div className={clsx(style.pRight,'col l-6')}>
                     <div className={clsx(style.prMain,'row')}>
                         <div className={clsx(style.prPriceSingle,'col l-3')}>
-                            <span className={style.priceSingle}>1000000</span>
+                            <span className={style.priceSingle}>{numberWithCommas(cart.priceCart)}<span className={style.unit}>đ</span></span>
                         </div>
                         <div className={clsx(style.prNumber,'col l-3')}>
-                            <span className={style.Number}>2</span>
+                            <span className={style.Number}>{cart.quantityCart}</span>
                         </div>
                         <div className={clsx(style.prPriceDouble,'col l-3')}>
-                            <span className={style.priceDouble}>2000000</span>
+                            <span className={style.priceDouble}>{numberWithCommas(cart.priceCart*cart.quantityCart)}<span className={style.unit}>đ</span></span>
                         </div>
                         <div className={clsx(style.prDelete,'col l-3')}>
                             <span className={style.Delete}>xóa</span>
@@ -62,6 +79,7 @@ function Cart() {
                     </div>
                 </div>
             </div>
+            ))}
             <div className={clsx(style.sum)}>
                 <div className={clsx(style.sLeft,'col l-4')}>
                     <input type='checkbox' className={style.check}/>

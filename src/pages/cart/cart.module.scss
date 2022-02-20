@@ -64,7 +64,7 @@
                     display: flex;
                     align-items:center;
                     .img{
-                        height:8rem;
+                        height:10rem;
                     }
                 }
                 .plName{
@@ -103,6 +103,10 @@
                     .priceSingle{
                         color: #333;
                         font-size:1.6rem;
+                        position: relative;
+                        .unit{
+                            color: #777;
+                        }
                     }
                 }
                 .prNumber{
@@ -121,6 +125,10 @@
                     .priceDouble{
                         color: #333;
                         font-size:1.6rem;
+                        position: relative;
+                        .unit{
+                            color: #777;
+                        }
                     }
                 }
                 .prDelete{

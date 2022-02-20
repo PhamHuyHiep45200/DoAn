@@ -1,27 +1,44 @@
-import React, {  useState } from 'react';
+import React, {  useState,useContext } from 'react';
 import {FaShippingFast,FaFacebook,FaFacebookMessenger,FaHeart} from 'react-icons/fa'
 import {MinusOutlined,PlusOutlined,RightOutlined} from '@ant-design/icons'
+import { addCart } from '../../../services/api/page/cart';
 import './info.scss'
+import { LoginProvider } from '../../../App';
+import { ToastContainer, toast } from 'react-toastify';
 
-function InfoProduct({name,img,sale,price,tym}) {
-
-    const [number,setNumber]=useState(1)
+function InfoProduct({proID,name,img,sale,price,tym}) {
+    const {user:{data:{_id}}}=useContext(LoginProvider)
+    const userID=_id
+    const [quantityAddCart,setQuantityAddCart]=useState(1)
 
     const handlePlus=()=>{
-        
-        setNumber(number+1)
+        setQuantityAddCart(quantityAddCart+1)
     }
 
     const handleMinus=()=>{
-        if(number<=0){
-            return setNumber(0)
+        if(quantityAddCart<=0){
+            return setQuantityAddCart(0)
         }
-        setNumber(number-1)
+        setQuantityAddCart(quantityAddCart-1)
+    }
+
+    const handleAddCart=async ()=>{
+        const {success,data}=await addCart(proID,name,img,price,quantityAddCart,userID)
+        if(success){
+            if(!data.data.success){
+                alert(data.data.description)
+            }
+            else{
+                notify()
+            }
+        }
     }
 
     function numberWithCommas(x) {
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
+    const notify = () => toast('Sản phẩm đã được thêm vào giỏ hàng');
+
   return (
       <div className="infoDetail">
           <h3 className="infoDetail_h3">
@@ -88,7 +105,7 @@ function InfoProduct({name,img,sale,price,tym}) {
                             <span className="infoDetail_main_info_out_number_right_minus" onClick={handleMinus}>
                                 <MinusOutlined />
                             </span>
-                            <span className="infoDetail_main_info_out_number_right_quantily">{number}</span>
+                            <span className="infoDetail_main_info_out_number_right_quantily">{quantityAddCart}</span>
                             <span className="infoDetail_main_info_out_number_right_plus" onClick={handlePlus}>
                                 <PlusOutlined />
                             </span>
@@ -96,11 +113,14 @@ function InfoProduct({name,img,sale,price,tym}) {
                         </div>
                     </div>
                     <div className="infoDetail_main_info_out_btn">
-                        <button className="infoDetail_main_info_out_btn_cart">Thêm vào giỏ hàng</button>
+                        <button className="infoDetail_main_info_out_btn_cart" onClick={handleAddCart}>Thêm vào giỏ hàng</button>
                         <button className="infoDetail_main_info_out_btn_buying">Mua hàng</button>
                     </div>
                 </div>
               </div>
+          </div>
+          <div>
+            <ToastContainer />
           </div>
       </div>
   )

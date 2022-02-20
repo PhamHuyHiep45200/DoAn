@@ -19,11 +19,11 @@ function DetailProduct() {
     }
     return getDetail()
   },[])
-  const {name,img,sale,price,tym,description,screen,chip,ram,rom,pin,camera}=dataDetail
+  const {_id,name,img,sale,price,tym,description,screen,chip,ram,rom,pin,camera}=dataDetail
   return (
       <div className="detail">
           <div className="grid wide ">
-            <InfoProduct name={name} img={img} sale={sale} price={price} tym={tym} />
+            <InfoProduct proID={_id} name={name} img={img} sale={sale} price={price} tym={tym} />
             <Description description={description} screen={screen} camera={camera} chip={chip} ram={ram} rom={rom} pin={pin}/>  
             <CommentProduct />
           </div>

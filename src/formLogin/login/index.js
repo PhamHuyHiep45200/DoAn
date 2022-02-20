@@ -1,26 +1,33 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import {useNavigate} from 'react-router-dom'
 import style from './login.module.scss'
-import {login} from '../../services/api/login'
+import {LoginProvider} from '../../App'
 
 function Login() {
   const [input,setInput]=useState({email:'',password:'',})
   const [dataLogin,setDataLogin]=useState('')
   const navigate=useNavigate()
+  const {LoginForm}=useContext(LoginProvider)
+
   const handleInput=(e)=>{
     setDataLogin('')
     setInput({...input,[e.target.name]:e.target.value})
   }
-  const handleSubmit= async (e)=>{
+  const handleSubmit=async (e)=>{
     e.preventDefault()
-    const {success,data}=await login(input.email,input.password)
-    if(success){
-      if(!data.data.success){
-        setDataLogin(data.data.description);
+    //loginForm
+    try{
+      const Login=await LoginForm(input.email,input.password)
+      console.log(Login);
+      if(!Login.success){
+        setDataLogin(Login.description);
       }
       else{
         navigate('/')
       }
+      
+    }catch(err){
+      console.log('err',err);
     }
   }
   return (

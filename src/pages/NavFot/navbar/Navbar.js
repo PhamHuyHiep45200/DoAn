@@ -3,12 +3,12 @@ import {Link} from 'react-router-dom'
 import {ShoppingTwoTone,SearchOutlined,ShoppingCartOutlined} from '@ant-design/icons'
 import './navbar.scss'
 import Anhdaidien from '../../../img/anhdaidiien.jpg'
-import {UserContext} from '../../../provider/userProvider'
+import {LoginProvider} from '../../../App'
 
 function Navbar() {
   const [input,setInput]=useState('')
-  // const user=useContext(UserContext)
-  // console.log(user);
+  // const {user:{data:{name}}}=useContext(LoginProvider)
+  // console.log(name);
   return (
     <div className="navbar">
       <div className="grid wide row">
@@ -42,7 +42,7 @@ function Navbar() {
           <div className="navbar_me_info">
             <img src={Anhdaidien} className="navbar_me_info_img"/>
             <span className="navbar_me_info_name">
-              Phạm huy hiệp
+              Phạm Huy hiệp
               <ul className="navbar_me_info_name_list">
                 <Link to='#' className="navbar_me_info_name_list_link">
                   <li className="navbar_me_info_name_list_link_item">Tài Khoản</li>
@@ -50,7 +50,7 @@ function Navbar() {
                 <Link to='/admin' className="navbar_me_info_name_list_link">
                   <li className="navbar_me_info_name_list_link_item">Admin</li>
                 </Link>
-                <Link to='#' className="navbar_me_info_name_list_link">
+                <Link to='/login' className="navbar_me_info_name_list_link">
                   <li className="navbar_me_info_name_list_link_item">Đăng Xuất</li>
                 </Link>
               </ul>
