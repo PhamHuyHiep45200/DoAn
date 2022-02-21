@@ -6,7 +6,7 @@ import './info.scss'
 import { LoginProvider } from '../../../App';
 import { ToastContainer, toast } from 'react-toastify';
 
-function InfoProduct({proID,name,img,sale,price,tym}) {
+function InfoProduct({proID,name,img,sale,price,tym,setToask}) {
     const {user:{data:{_id}}}=useContext(LoginProvider)
     const userID=_id
     const [quantityAddCart,setQuantityAddCart]=useState(1)
@@ -26,7 +26,10 @@ function InfoProduct({proID,name,img,sale,price,tym}) {
         const {success,data}=await addCart(proID,name,img,price,quantityAddCart,userID)
         if(success){
             if(!data.data.success){
-                alert(data.data.description)
+                setToask(true)
+                setTimeout(()=>{
+                    setToask(false);
+                },2000)
             }
             else{
                 notify()

@@ -17,6 +17,14 @@ function Cart() {
         }
         return getProCart()
     },[])
+    
+    const sumPrice =  dataCart.reduce((initValue,current)=>{
+        return  initValue + (current.priceCart*current.quantityCart)
+    },0)
+
+    const sumPro =  dataCart.reduce((initValue,current)=>{
+        return  initValue + current.quantityCart
+    },0)
 
     function numberWithCommas(x) {
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -46,39 +54,39 @@ function Cart() {
             </div>
             {dataCart.map((cart,index)=>(
                 <div className={clsx(style.product)} key={index}>
-                <div className={clsx(style.pLeft,'col l-6')}>
-                    <div className={clsx(style.plMain,'row')}>
-                        <div className={clsx(style.plCheckbox,'col l-2')}>
-                            <input type='checkbox' className={style.check}/>
+                    <div className={clsx(style.pLeft,'col l-6')}>
+                        <div className={clsx(style.plMain,'row')}>
+                            <div className={clsx(style.plCheckbox,'col l-2')}>
+                                <input type='checkbox' className={style.check}/>
+                            </div>
+                            <div className='col l-3' className={clsx(style.plImg,'col l-3')}>
+                                <img className={style.img} src={cart.imgCart}/>
+                            </div>
+                            <div className={clsx(style.plName,'col l-4')}>
+                                <p className={style.plNameProduct}>{cart.nameCart}</p>
+                            </div>
+                            <div className={clsx(style.plOption,'col l-3')}>
+                                <span className={style.optionProduct}>loại</span>
+                            </div>
                         </div>
-                        <div className='col l-2' className={clsx(style.plImg,'col l-2')}>
-                            <img className={style.img} src={cart.imgCart}/>
-                        </div>
-                        <div className={clsx(style.plName,'col l-4')}>
-                            <p className={style.plNameProduct}>{cart.nameCart}</p>
-                        </div>
-                        <div className={clsx(style.plOption,'col l-4')}>
-                            <span className={style.optionProduct}>loại</span>
+                    </div>
+                    <div className={clsx(style.pRight,'col l-6')}>
+                        <div className={clsx(style.prMain,'row')}>
+                            <div className={clsx(style.prPriceSingle,'col l-3')}>
+                                <span className={style.priceSingle}>{numberWithCommas(cart.priceCart)}<span className={style.unit}>đ</span></span>
+                            </div>
+                            <div className={clsx(style.prNumber,'col l-3')}>
+                                <span className={style.Number}>{cart.quantityCart}</span>
+                            </div>
+                            <div className={clsx(style.prPriceDouble,'col l-3')}>
+                                <span className={style.priceDouble}>{numberWithCommas(cart.priceCart*cart.quantityCart)}<span className={style.unit}>đ</span></span>
+                            </div>
+                            <div className={clsx(style.prDelete,'col l-3')}>
+                                <span className={style.Delete}>xóa</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div className={clsx(style.pRight,'col l-6')}>
-                    <div className={clsx(style.prMain,'row')}>
-                        <div className={clsx(style.prPriceSingle,'col l-3')}>
-                            <span className={style.priceSingle}>{numberWithCommas(cart.priceCart)}<span className={style.unit}>đ</span></span>
-                        </div>
-                        <div className={clsx(style.prNumber,'col l-3')}>
-                            <span className={style.Number}>{cart.quantityCart}</span>
-                        </div>
-                        <div className={clsx(style.prPriceDouble,'col l-3')}>
-                            <span className={style.priceDouble}>{numberWithCommas(cart.priceCart*cart.quantityCart)}<span className={style.unit}>đ</span></span>
-                        </div>
-                        <div className={clsx(style.prDelete,'col l-3')}>
-                            <span className={style.Delete}>xóa</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
             ))}
             <div className={clsx(style.sum)}>
                 <div className={clsx(style.sLeft,'col l-4')}>
@@ -86,8 +94,8 @@ function Cart() {
                     <span className={style.slText}>Xóa tất cả</span>
                 </div>
                 <div className={clsx(style.sRight,'col l-8')}>
-                    <span className={style.pay}>Tổng thanh toán ( 1 sản phẩm ):</span>
-                    <span className={style.sumMoney}>2000000 <span className="unit">đ</span></span>
+                    <span className={style.pay}>Tổng thanh toán ( {sumPro} sản phẩm ):</span>
+                    <span className={style.sumMoney}>{numberWithCommas(sumPrice)} <span className="unit">đ</span></span>
                     <div className={style.btnPay}>Mua Hàng</div>
                 </div>
             </div>

@@ -10,6 +10,7 @@ import './detail.scss'
 function DetailProduct() {
   const {id}=useParams()
   const [dataDetail,setDataDetail]=useState([])
+  const [toask,setToask]=useState(false)
   useEffect(()=>{
     const getDetail=async ()=>{
       const {success,data}=await getDetailProduct(id)
@@ -23,10 +24,11 @@ function DetailProduct() {
   return (
       <div className="detail">
           <div className="grid wide ">
-            <InfoProduct proID={_id} name={name} img={img} sale={sale} price={price} tym={tym} />
+            <InfoProduct proID={_id} name={name} img={img} sale={sale} price={price} tym={tym} setToask={setToask}/>
             <Description description={description} screen={screen} camera={camera} chip={chip} ram={ram} rom={rom} pin={pin}/>  
             <CommentProduct />
           </div>
+          {toask&&<div className="detail_toask">Sản phẩm đã có trong giỏ hàng</div>}
       </div>
   )
 }

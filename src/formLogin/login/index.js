@@ -18,7 +18,6 @@ function Login() {
     //loginForm
     try{
       const Login=await LoginForm(input.email,input.password)
-      console.log(Login);
       if(!Login.success){
         setDataLogin(Login.description);
       }

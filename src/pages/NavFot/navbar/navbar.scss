@@ -127,10 +127,25 @@
             align-items:center;
             justify-content:center;
 
-            &_icon{
-                font-size:3.3rem;
-                color:white !important;
+            &_link{
+                position: relative;
+
+                &_icon{
+                    font-size:3.3rem;
+                    color:white !important;
+    
+                    &_number{
+                        position: absolute;
+                        left:50%;
+                        bottom: 50%;
+                        background-color:white;
+                        color:red;
+                        padding:0.2rem 0.8rem;
+                        border-radius: 50%;
+                    }
+                }
             }
+            
         }
 
         &_info{

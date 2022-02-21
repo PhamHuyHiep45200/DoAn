@@ -7,8 +7,7 @@ import {LoginProvider} from '../../../App'
 
 function Navbar() {
   const [input,setInput]=useState('')
-  // const {user:{data:{name}}}=useContext(LoginProvider)
-  // console.log(name);
+  const {user:{data:{name}}}=useContext(LoginProvider)
   return (
     <div className="navbar">
       <div className="grid wide row">
@@ -35,14 +34,15 @@ function Navbar() {
         </div>
         <div className="navbar_me col l-2">
           <div className="navbar_me_cart">
-            <Link to='/cart'>
-              <ShoppingCartOutlined className="navbar_me_cart_icon"/>
+            <Link className="navbar_me_cart_link" to='/cart'>
+              <ShoppingCartOutlined className="navbar_me_cart_link_icon"/>
+              <span className="navbar_me_cart_link_icon_number">5</span>
             </Link>
           </div>
           <div className="navbar_me_info">
             <img src={Anhdaidien} className="navbar_me_info_img"/>
             <span className="navbar_me_info_name">
-              Phạm Huy hiệp
+              {name}
               <ul className="navbar_me_info_name_list">
                 <Link to='#' className="navbar_me_info_name_list_link">
                   <li className="navbar_me_info_name_list_link_item">Tài Khoản</li>
