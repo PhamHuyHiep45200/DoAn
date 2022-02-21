@@ -1,16 +1,22 @@
-import React, { useEffect,useState } from 'react';
+import React, { useContext, useEffect,useState } from 'react';
 import {GiHotSpices} from 'react-icons/gi'
 import {getProducHot} from '../../../services/api/page'
 import {Link} from 'react-router-dom'
-import Dth1 from '../../../img/dth1.jfif'
 import './product.scss'
+import { LoginProvider } from '../../../App';
+import {Spin} from 'antd'
+import { LoadingOutlined } from '@ant-design/icons';
 
 function ProductHot() {
+  const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
+  const {setIsLoadding,isLoadding}=useContext(LoginProvider)
   const [productHot,setProductHot] = useState([])
-  useEffect(()=>{
+  useEffect(()=>{    
+    setIsLoadding(false);
     const showProsuctHot=async()=>{
       const {success,data}=await getProducHot()
       if(success){
+        setIsLoadding(true)
         setProductHot(data.data)
       }
     }
@@ -30,8 +36,8 @@ function ProductHot() {
               <a href='#' className="productHot_header_right_text">xem tất cả</a>
             </span>
           </div>
-          <div className="productHot_main row">
-            {productHot.map((proHot)=>(
+          <div className="productHot_main row center">
+            {  !isLoadding? <Spin indicator={antIcon}/> : productHot.map((proHot)=>(
               <Link key={proHot._id} to={`/detail/${proHot._id}`} className="productHot_main_link  col l-24">
                 <div className="productHot_main_link_product">
                   <div className="productHot_main_link_product_out">

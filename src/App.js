@@ -1,4 +1,5 @@
 import Router from './router/router';
+import './App.css'
 // import ContextProvider from './provider/userProvider'
 import {login} from './services/api/login'
 import { createContext, useEffect, useState } from 'react';
@@ -8,6 +9,7 @@ export const LoginProvider=createContext()
 
 function App() {
   const [user,setUser]=useState({})
+  const [isLoadding,setIsLoadding]=useState(false)
 
   const LoginForm=async (email,password)=>{
     const {success,data}=await login(email,password)
@@ -23,9 +25,11 @@ function App() {
   
   // console.log(dataCart);
   return (
-    <LoginProvider.Provider value={{ LoginForm,user }}>
-      <Router/>
-    </LoginProvider.Provider>
+    <div className="container">
+      <LoginProvider.Provider value={{ LoginForm,user,setIsLoadding,isLoadding }}>
+        <Router/>
+      </LoginProvider.Provider>
+    </div>
   );
 }
 

@@ -2,17 +2,22 @@ import clsx from 'clsx';
 import React,{useEffect, useState,useContext} from 'react';
 import style from './cart.module.scss'
 import {getCart} from '../../services/api/page/cart'
-import {ShoppingCartOutlined} from '@ant-design/icons'
+import {LoadingOutlined, ShoppingCartOutlined} from '@ant-design/icons'
 import {LoginProvider} from '../../App'
+import { Spin } from 'antd';
 
 function Cart() {
+    const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
+    const {setIsLoadding,isLoadding}=useContext(LoginProvider)
     const {user:{data:{_id}}}=useContext(LoginProvider)
     const [dataCart,setDataCart]=useState([])
     useEffect(()=>{
+        setIsLoadding(false)
         const getProCart=async()=>{
             const {success,data}=await getCart(_id)
             if(success){
                 setDataCart(data.data)
+                setIsLoadding(true)
             }
         }
         return getProCart()
@@ -31,7 +36,7 @@ function Cart() {
     }
   return (
       <div className={style.cart}>
-        <div className="grid wide">
+        <div className="grid wide center">
             <div className={style.bar}>
                 <ShoppingCartOutlined className={style.barIcon}/>
                     Hãy thêm những sản phẩm bạn thích vào giỏ hàng của bạn nhé!
@@ -52,7 +57,7 @@ function Cart() {
                     </div>
                 </div>
             </div>
-            {dataCart.map((cart,index)=>(
+            {!isLoadding? <Spin indicator={antIcon}/>: dataCart.map((cart,index)=>(
                 <div className={clsx(style.product)} key={index}>
                     <div className={clsx(style.pLeft,'col l-6')}>
                         <div className={clsx(style.plMain,'row')}>
